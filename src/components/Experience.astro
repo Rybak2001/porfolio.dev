@@ -2,28 +2,69 @@
 import ExperienceItem from "./ExperienceItem.astro"
 const EXPERIENCIE = [
   {
-    date: "Septiembre 2024",
-    title: "Pagina web comercial",
-    company: "Astrogeomatica",
+    date: "Agosto 2024 — Presente",
+    title: "Tesista — Sistema de Realidad Mixta",
+    company: "Mi Teleférico — Parque de las Culturas",
     description:
-      "Página comercial de servicios fotogramétricos desarrollado con WordPress y CloudFlare.",
-    link: "https://astrogeomatics.com/",
+      "Diseño e implementación de plataforma web (MEAN stack) + app Android nativa (Kotlin) con WebSockets en tiempo real. API REST con Swagger, deploy en VPS con Nginx, ORM Mongoose. Proyecto de grado.",
+    logo: "https://www.google.com/s2/favicons?domain=teleferico.com.bo&sz=64",
   },
   {
-    date: "Noviembre 2024",
-    title: "Plataforma de aprendizaje",
+    date: "Enero 2025 — Presente",
+    title: "Practicante — Soporte de Servidores",
+    company: "Mi Teleférico — Parque de las Culturas",
+    description:
+      "Mantenimiento de servidores Linux, monitoreo con Grafana, administración de servicios de red e infraestructura.",
+    logo: "https://www.google.com/s2/favicons?domain=teleferico.com.bo&sz=64",
+  },
+  {
+    date: "Junio 2024 — Diciembre 2024",
+    title: "Desarrollador Web — Freelance",
     company: "Astrogeomatica",
     description:
-      "Página de capacitación en fotogrametría desarrollado con Moodle y Cloudflare.",
-    link: "https://capacitacion.astrogeomatics.com/",
+      "Despliegue de astrogeomatics.com (WordPress + CloudFlare + Nginx) y plataforma Moodle de capacitación interna en fotogrametría.",
+    link: "https://astrogeomatics.com/",
+    logo: "https://www.google.com/s2/favicons?domain=astrogeomatics.com&sz=64",
+  },
+  {
+    date: "Febrero 2024 — Mayo 2024",
+    title: "Pasante — Desarrollo Web",
+    company: "Centro Boliviano Americano (CBA)",
+    description:
+      "Desarrollo de plataforma de control de acceso: Angular + .NET Core con Entity Framework, JWT, gestión de roles y auditoría completa.",
+    logo: "https://www.google.com/s2/favicons?domain=cba.org.bo&sz=64",
+  },
+  {
+    date: "Diciembre 2024 — Presente",
+    title: "Ecosistema SurtiBolivia",
+    company: "Proyecto Independiente",
+    description:
+      "E-commerce + inventario + suite QA + tests E2E. Next.js 14, Angular, Prisma, PostgreSQL Neon, Puppeteer. 12 aplicaciones desplegadas en Vercel.",
+    link: "https://smb-commerce-platform.vercel.app",
+  },
+  {
+    date: "Enero 2025",
+    title: "NovaTech RRHH — Recursos Humanos",
+    company: "Proyecto Independiente",
+    description:
+      "Sistema completo de gestión de recursos humanos con nóminas, departamentos, asistencias y reportes analíticos. Next.js 14, Prisma, Neon PostgreSQL.",
+    link: "https://novatech-rrhh.vercel.app",
+  },
+  {
+    date: "Marzo 2025",
+    title: "NovaTech Contabilidad",
+    company: "Proyecto Independiente",
+    description:
+      "Sistema de contabilidad empresarial con plan de cuentas, libro diario, libro mayor, balance general y estado de resultados. Nuxt 4, Vue 3, Prisma, PostgreSQL.",
+    link: "https://novatech-contabilidad.vercel.app",
   },
 ]
 ---
 
 <ol class="relative mt-16">
   {
-    EXPERIENCIE.map((experiencie) => (
-      <li class="">
+    EXPERIENCIE.map((experiencie, i) => (
+      <li data-anim="anim-fade-left" class={`delay-${i + 1}`}>
         <ExperienceItem {...experiencie} />
       </li>
     ))

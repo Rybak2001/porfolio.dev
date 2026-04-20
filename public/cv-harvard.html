@@ -1,0 +1,485 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedro Chacolla â€“ Desarrollador de Software</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'EB Garamond', 'Georgia', 'Times New Roman', serif;
+            color: #000;
+            background: #b0b0b0;
+            font-size: 10.5pt;
+            line-height: 1.5;
+        }
+
+        a { color: #000; text-decoration: none; }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 16px auto;
+            background: #fff;
+            box-shadow: 0 4px 28px rgba(0,0,0,0.3);
+            padding: 18mm 18mm 16mm;
+        }
+
+        /* â”€â”€â”€ HEADER â”€â”€â”€ */
+        .cv-name {
+            font-size: 22pt;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+
+        .cv-title {
+            font-size: 10pt;
+            font-weight: 400;
+            font-style: italic;
+            text-align: center;
+            color: #333;
+            margin-top: 2px;
+            margin-bottom: 6px;
+        }
+
+        .cv-contacts {
+            text-align: center;
+            font-size: 9pt;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        .cv-contacts .row { display: block; }
+        .cv-contacts .sep { margin: 0 6px; color: #888; }
+
+        .header-rule {
+            border: none;
+            border-top: 2px solid #000;
+            margin: 8px 0 12px;
+        }
+
+        /* â”€â”€â”€ SECTIONS â”€â”€â”€ */
+        .sec { margin-bottom: 11px; }
+
+        .sec-t {
+            font-size: 10pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-bottom: 1px solid #000;
+            padding-bottom: 2px;
+            margin-bottom: 7px;
+        }
+
+        /* â”€â”€â”€ PROFILE â”€â”€â”€ */
+        .profile {
+            font-size: 10pt;
+            color: #111;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* â”€â”€â”€ ENTRY â”€â”€â”€ */
+        .entry { margin-bottom: 7px; }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .entry-left { flex: 1; }
+
+        .entry-org {
+            font-weight: 700;
+            font-size: 10.5pt;
+        }
+
+        .entry-role {
+            font-style: italic;
+            font-size: 9.5pt;
+            color: #222;
+        }
+
+        .entry-date {
+            font-size: 9pt;
+            color: #444;
+            white-space: nowrap;
+            padding-left: 12px;
+            text-align: right;
+        }
+
+        .entry ul {
+            padding-left: 18px;
+            margin-top: 2px;
+        }
+
+        .entry li {
+            font-size: 9.5pt;
+            color: #111;
+            margin-bottom: 1px;
+            line-height: 1.5;
+            list-style-type: disc;
+        }
+
+        /* â”€â”€â”€ PROJECTS â”€â”€â”€ */
+        .proj { margin-bottom: 5px; padding-left: 18px; position: relative; }
+        .proj::before {
+            content: '\25B6';
+            font-size: 6pt;
+            position: absolute;
+            left: 0;
+            top: 3px;
+            color: #000;
+        }
+        .proj-name { font-weight: 700; font-size: 10pt; }
+        .proj-tech { font-style: italic; font-size: 9pt; color: #444; }
+        .proj-desc { font-size: 9.5pt; color: #222; line-height: 1.45; }
+
+        /* â”€â”€â”€ SKILLS TABLE â”€â”€â”€ */
+        .skills-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+        .skills-table td {
+            padding: 2px 6px 2px 0;
+            vertical-align: top;
+        }
+        .skills-table td.sk-label {
+            font-weight: 700;
+            white-space: nowrap;
+            padding-right: 10px;
+            width: 120px;
+        }
+        .skills-table td.sk-sep {
+            width: 8px;
+            color: #888;
+        }
+
+        /* â”€â”€â”€ EDUCATION â”€â”€â”€ */
+        .edu { margin-bottom: 6px; }
+        .edu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .edu-name { font-weight: 700; font-size: 10.5pt; }
+        .edu-date { font-size: 9pt; color: #444; }
+        .edu-deg { font-style: italic; font-size: 9.5pt; color: #222; }
+
+        /* â”€â”€â”€ CERTS / MISC â”€â”€â”€ */
+        .cert-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 9.5pt;
+            margin-bottom: 3px;
+        }
+        .cert-name { color: #111; }
+        .cert-date { color: #555; font-style: italic; }
+
+        /* â”€â”€â”€ TWO-COLUMN SKILLS â”€â”€â”€ */
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; }
+
+        .footer-line {
+            font-size: 8.5pt;
+            font-style: italic;
+            color: #888;
+            text-align: center;
+            margin-top: 10px;
+            padding-top: 6px;
+            border-top: 1px solid #ccc;
+        }
+
+        @media print {
+            body { background: #fff; }
+            .page { margin: 0; box-shadow: none; padding: 14mm 16mm 12mm; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- HEADER -->
+    <div class="cv-name">Pedro Abad Chacolla Espinoza</div>
+    <div class="cv-title">Desarrollador de Software &middot; Web &amp; Mobile</div>
+    <div class="cv-contacts">
+        <span class="row">
+            chacolla43@gmail.com
+            <span class="sep">|</span>
+            +591 76591390
+            <span class="sep">|</span>
+            La Paz, Bolivia
+        </span>
+        <span class="row">
+            github.com/Rybak1234
+            <span class="sep">|</span>
+            linkedin.com/in/pedro-chacolla-b18918359
+            <span class="sep">|</span>
+            porfolio-dev-amber.vercel.app
+        </span>
+    </div>
+    <hr class="header-rule">
+
+    <!-- PERFIL -->
+    <section class="sec">
+        <h2 class="sec-t">Perfil</h2>
+        <p class="profile">
+            Egresado de IngenierÃ­a de Sistemas con experiencia en desarrollo web full-stack (Next.js, Angular, .NET&nbsp;Core, MEAN), aplicaciones Android nativas (Kotlin) y despliegue en Vercel, AWS y VPS. Mantengo un ecosistema de 12+ aplicaciones en producciÃ³n con CI/CD y testing E2E automatizado (Puppeteer). Aplico patrones de Clean Architecture, CQRS y microservicios. Certificado CCNA 1&amp;2, inglÃ©s C1 (CBA), usuario diario de Linux. Disponibilidad inmediata.
+        </p>
+    </section>
+
+    <!-- EXPERIENCIA -->
+    <section class="sec">
+        <h2 class="sec-t">Experiencia Profesional</h2>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-left">
+                    <div class="entry-org">Mi TelefÃ©rico â€“ Parque de las Culturas</div>
+                    <div class="entry-role">Tesista â€“ Desarrollo de Sistema de Realidad Mixta</div>
+                </div>
+                <div class="entry-date">Ago. 2024 â€“ Ago. 2025<br>La Paz, Bolivia</div>
+            </div>
+            <ul>
+                <li>DiseÃ±Ã© e implementÃ© un sistema web (MEAN stack) + app Android nativa (Kotlin) con comunicaciÃ³n en tiempo real mediante WebSockets.</li>
+                <li>ApliquÃ© arquitectura MVC; API REST documentada con Swagger/OpenAPI; deploy en VPS con Nginx; ORM Mongoose para MongoDB.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-left">
+                    <div class="entry-org">Mi TelefÃ©rico â€“ Parque de las Culturas</div>
+                    <div class="entry-role">Practicante â€“ Soporte de Servidores e Infraestructura</div>
+                </div>
+                <div class="entry-date">Ene. 2025 â€“ Ago. 2025<br>La Paz, Bolivia</div>
+            </div>
+            <ul>
+                <li>Mantenimiento de servidores Linux, monitoreo de mÃ©tricas de rendimiento con Grafana y administraciÃ³n de servicios de red.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-left">
+                    <div class="entry-org">Astrogeomatica</div>
+                    <div class="entry-role">Desarrollador Web â€“ Freelance</div>
+                </div>
+                <div class="entry-date">Jun. 2024 â€“ Dic. 2024<br>La Paz, Bolivia</div>
+            </div>
+            <ul>
+                <li>Despliegue y configuraciÃ³n de astrogeomatics.com (WordPress + CloudFlare + Nginx) y plataforma Moodle de capacitaciÃ³n interna.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-left">
+                    <div class="entry-org">Centro Boliviano Americano (CBA)</div>
+                    <div class="entry-role">Desarrollador Web â€“ Freelance</div>
+                </div>
+                <div class="entry-date">Feb. 2024 â€“ May. 2024<br>La Paz, Bolivia</div>
+            </div>
+            <ul>
+                <li>Desarrollo de plataforma de control de acceso: Angular + .NET Core con Entity Framework, JWT, gestiÃ³n de roles y auditorÃ­a.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-left">
+                    <div class="entry-org">Universidad Privada del Valle (Univalle)</div>
+                    <div class="entry-role">Auxiliar de Docencia â€“ LÃ³gica y ProgramaciÃ³n</div>
+                </div>
+                <div class="entry-date">2022 â€“ 2024<br>La Paz, Bolivia</div>
+            </div>
+            <ul>
+                <li>Dictado de clases prÃ¡cticas, diseÃ±o de evaluaciones y tutorÃ­a individual a estudiantes de primer aÃ±o de IngenierÃ­a de Sistemas.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section class="sec">
+        <h2 class="sec-t">Proyectos Seleccionados</h2>
+
+        <div class="two-col">
+            <div>
+                <div class="proj">
+                    <span class="proj-name">Sistema de Realidad Mixta</span><br>
+                    <span class="proj-tech">Angular Â· Node.js Â· MongoDB Â· Kotlin Â· WebSockets Â· Mongoose</span><br>
+                    <span class="proj-desc">Plataforma web + app Android para aprendizaje interactivo. Proyecto de grado.</span>
+                </div>
+                <div class="proj">
+                    <span class="proj-name">SurtiBolivia E-Commerce</span><br>
+                    <span class="proj-tech">Next.js 14 Â· Prisma Â· PostgreSQL Neon Â· Stripe Â· NextAuth Â· Tailwind</span><br>
+                    <span class="proj-desc">E-commerce completo: catÃ¡logo, carrito, pagos Stripe, admin, vendors, reviews, cupones, flash deals.</span>
+                </div>
+                <div class="proj">
+                    <span class="proj-name">Inventario SurtiBolivia</span><br>
+                    <span class="proj-tech">Next.js 14 Â· Prisma Â· PostgreSQL Neon Â· NextAuth Â· Tailwind</span><br>
+                    <span class="proj-desc">GestiÃ³n de inventario con roles, movimientos, alertas, subida de imÃ¡genes. BD compartida con e-commerce.</span>
+                </div>
+                <div class="proj">
+                    <span class="proj-name">QA Test Suite</span><br>
+                    <span class="proj-tech">Angular 17 Â· RxJS Â· Vercel</span><br>
+                    <span class="proj-desc">10 suites con +90 tests contra APIs de producciÃ³n. Dashboard, mÃ©tricas, historial, exportaciÃ³n CSV.</span>
+                </div>
+                <div class="proj">
+                    <span class="proj-name">NovatechRRHH</span><br>
+                    <span class="proj-tech">Next.js 14 Â· Prisma Â· PostgreSQL Neon Â· Tailwind Â· Vercel</span><br>
+                    <span class="proj-desc">Sistema RRHH: empleados, departamentos, nÃ³minas, asistencias, reportes y dashboard analÃ­tico.</span>
+                </div>
+                <div class="proj">
+                    <span class="proj-name">E2E Testing Automatizado</span><br>
+                    <span class="proj-tech">Puppeteer Â· Node.js Â· GitHub Actions</span><br>
+                    <span class="proj-desc">37+ tests E2E headless validando flujos crÃ­ticos del ecosistema SurtiBolivia en CI/CD.</span>
+                </div>
+            </div>
+            <div>
+                <div class="proj">
+                    <span class="proj-name">Collaborative Workboard</span><br>
+                    <span class="proj-tech">Next.js Â· Tailwind Â· MongoDB Â· WebSockets</span><br>
+                    <span class="proj-desc">Tablero Kanban colaborativo en tiempo real con drag &amp; drop y notificaciones.</span>
+                </div>
+                <div class="proj">
+                    <span class="proj-name">CI/CD Release Automation</span><br>
+                    <span class="proj-tech">GitHub Actions Â· Docker Â· Node.js Â· Nginx</span><br>
+                    <span class="proj-desc">Pipeline: lint, tests, build Docker, deploy automÃ¡tico a VPS con rollback.</span>
+                </div>
+                <div class="proj">
+                    <span class="proj-name">Acortador de URLs</span><br>
+                    <span class="proj-tech">Angular Â· Node.js Â· Express</span><br>
+                    <span class="proj-desc">Servicio de acortamiento con estadÃ­sticas de clicks y enlaces personalizados.</span>
+                </div>
+                <div class="proj">
+                    <span class="proj-name">Free Tier Monitor</span><br>
+                    <span class="proj-tech">Next.js 14 Â· Tailwind Â· Vercel</span><br>
+                    <span class="proj-desc">Monitoreo de servicios free-tier en la nube. Dashboard con grÃ¡ficas y alertas.</span>
+                </div>
+                <div class="proj">
+                    <span class="proj-name">Dashboard AnalÃ­tica en Tiempo Real</span><br>
+                    <span class="proj-tech">Angular Â· Node.js Â· Socket.IO Â· MongoDB Â· Chart.js</span><br>
+                    <span class="proj-desc">VisualizaciÃ³n live con WebSockets, filtros dinÃ¡micos y exportaciÃ³n CSV/PDF.</span>
+                </div>
+                <div class="proj">
+                    <span class="proj-name">Plataforma Control de Acceso CBA</span><br>
+                    <span class="proj-tech">Angular Â· .NET Core Â· Entity Framework Â· JWT</span><br>
+                    <span class="proj-desc">Control de acceso con gestiÃ³n de roles, auditorÃ­a completa y autenticaciÃ³n JWT.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HABILIDADES TÃ‰CNICAS -->
+    <section class="sec">
+        <h2 class="sec-t">Habilidades TÃ©cnicas</h2>
+        <table class="skills-table">
+            <tr>
+                <td class="sk-label">Frontend</td>
+                <td class="sk-sep">:</td>
+                <td>TypeScript / JavaScript (8/10), Next.js (8/10), Angular (6/10), HTML5, CSS3, Astro, Tailwind CSS</td>
+            </tr>
+            <tr>
+                <td class="sk-label">Backend</td>
+                <td class="sk-sep">:</td>
+                <td>.NET Core / C# (7/10), Node.js / Express (7/10), Python (bÃ¡sico)</td>
+            </tr>
+            <tr>
+                <td class="sk-label">Bases de datos</td>
+                <td class="sk-sep">:</td>
+                <td>MongoDB (7/10), PostgreSQL (6/10)</td>
+            </tr>
+            <tr>
+                <td class="sk-label">ORM</td>
+                <td class="sk-sep">:</td>
+                <td>Entity Framework, Mongoose, Prisma, TypeORM</td>
+            </tr>
+            <tr>
+                <td class="sk-label">Mobile</td>
+                <td class="sk-sep">:</td>
+                <td>Kotlin / Android nativo (6/10), MVVM, Room DB</td>
+            </tr>
+            <tr>
+                <td class="sk-label">DevOps &amp; Infra</td>
+                <td class="sk-sep">:</td>
+                <td>Docker (5/10), Git, Linux, AWS, Nginx, Apache, GitHub Actions, Jenkins, Grafana, Redis, RabbitMQ, Vercel, Neon, VPS</td>
+            </tr>
+            <tr>
+                <td class="sk-label">Testing</td>
+                <td class="sk-sep">:</td>
+                <td>Puppeteer, Jest, Jasmine, Karma, Selenium</td>
+            </tr>
+            <tr>
+                <td class="sk-label">Arquitectura</td>
+                <td class="sk-sep">:</td>
+                <td>MVC, Clean Architecture, CQRS, Microservicios, API REST, WebSockets</td>
+            </tr>
+            <tr>
+                <td class="sk-label">Herramientas</td>
+                <td class="sk-sep">:</td>
+                <td>VSCode, Visual Studio 2022, Swagger/OpenAPI, Figma, WordPress, Moodle, CloudFlare, Scrum</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- EDUCACIÃ“N -->
+    <section class="sec">
+        <h2 class="sec-t">EducaciÃ³n</h2>
+
+        <div class="edu">
+            <div class="edu-header">
+                <span class="edu-name">Universidad Privada del Valle (Univalle)</span>
+                <span class="edu-date">2018 â€“ 2024 &nbsp;|&nbsp; La Paz, Bolivia</span>
+            </div>
+            <div class="edu-deg">Egresado en IngenierÃ­a de Sistemas</div>
+        </div>
+
+        <div class="edu">
+            <div class="edu-header">
+                <span class="edu-name">Centro Boliviano Americano (CBA)</span>
+                <span class="edu-date">2019 â€“ 2025 &nbsp;|&nbsp; La Paz, Bolivia</span>
+            </div>
+            <div class="edu-deg">Certificado de Dominio del InglÃ©s â€“ Nivel C1 Avanzado</div>
+        </div>
+    </section>
+
+    <!-- CERTIFICACIONES Y ACTIVIDADES -->
+    <section class="sec">
+        <h2 class="sec-t">Certificaciones &amp; Actividades</h2>
+
+        <div class="cert-item">
+            <span class="cert-name">CCNA 1 &amp; 2 â€“ Cisco Networking Academy</span>
+            <span class="cert-date">Noviembre 2023</span>
+        </div>
+        <div class="cert-item">
+            <span class="cert-name">Scrum &amp; MetodologÃ­as Ãgiles (meetup con certificado)</span>
+            <span class="cert-date">2023</span>
+        </div>
+        <div class="cert-item">
+            <span class="cert-name">Comunidad Ubuntu Linux â€“ La Paz &nbsp;(instalaciÃ³n y soporte a usuarios)</span>
+            <span class="cert-date">2023 â€“ Presente</span>
+        </div>
+    </section>
+
+    <!-- IDIOMAS -->
+    <section class="sec">
+        <h2 class="sec-t">Idiomas</h2>
+        <div class="cert-item">
+            <span class="cert-name">EspaÃ±ol</span>
+            <span class="cert-date">Nativo</span>
+        </div>
+        <div class="cert-item">
+            <span class="cert-name">InglÃ©s</span>
+            <span class="cert-date">C1 Avanzado (CBA, 2019â€“2025)</span>
+        </div>
+    </section>
+
+    <p class="footer-line">Disponibilidad inmediata &middot; Remoto o presencial &middot; Referencias disponibles a solicitud</p>
+
+</div>
+</body>
+</html>
+

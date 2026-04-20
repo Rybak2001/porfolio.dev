@@ -2,8 +2,18 @@
 import GitHub from "./icons/GitHub.astro"
 import NextJS from "./icons/NextJS.astro"
 import Tailwind from "./icons/Tailwind.astro"
+import Angular from "./icons/Angular.astro"
+import Kotlin from "./icons/Kotlin.astro"
+import Vercel from "./icons/Vercel.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
+import Prisma from "./icons/Prisma.astro"
+import NodeJS from "./icons/NodeJS.astro"
+import MongoDB from "./icons/MongoDB.astro"
+import DotNet from "./icons/DotNet.astro"
+import Puppeteer from "./icons/Puppeteer.astro"
+import Nuxt from "./icons/Nuxt.astro"
+import PostgreSQL from "./icons/PostgreSQL.astro"
 
 const TAGS = {
   NEXT: {
@@ -16,71 +26,209 @@ const TAGS = {
     class: "bg-[#003159] text-white",
     icon: Tailwind,
   },
-}
-const PROJECTS = [
-  {
-    title: "Acortador URL",
-    description:
-      "Acortador de direcciones URL ",
-    link: "https://front-shortener.vercel.app/",
-    github: "https://github.com/Rybak2001/frontAngular.git",
-    image: "/projects/svgl.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  ANGULAR: {
+    name: "Angular",
+    class: "bg-[#DD0031] text-white",
+    icon: Angular,
   },
+  KOTLIN: {
+    name: "Kotlin",
+    class: "bg-[#7F52FF] text-white",
+    icon: Kotlin,
+  },
+  VERCEL: {
+    name: "Vercel",
+    class: "bg-black text-white",
+    icon: Vercel,
+  },
+  PRISMA: {
+    name: "Prisma",
+    class: "bg-[#2D3748] text-white",
+    icon: Prisma,
+  },
+  NEON: {
+    name: "Neon DB",
+    class: "bg-[#00E699] text-black",
+    icon: PostgreSQL,
+  },
+  NODE: {
+    name: "Node.js",
+    class: "bg-[#339933] text-white",
+    icon: NodeJS,
+  },
+  MONGODB: {
+    name: "MongoDB",
+    class: "bg-[#47A248] text-white",
+    icon: MongoDB,
+  },
+  DOTNET: {
+    name: ".NET Core",
+    class: "bg-[#512BD4] text-white",
+    icon: DotNet,
+  },
+  PUPPETEER: {
+    name: "Puppeteer",
+    class: "bg-[#00D8A2] text-black",
+    icon: Puppeteer,
+  },
+  NUXT: {
+    name: "Nuxt 4",
+    class: "bg-[#00DC82] text-black",
+    icon: Nuxt,
+  },
+  POSTGRESQL: {
+    name: "PostgreSQL",
+    class: "bg-[#336791] text-white",
+    icon: PostgreSQL,
+  },
+}
 
+const STACKS = [
+  {
+    name: "Next.js Full-Stack (Next.js + Prisma + PostgreSQL + Tailwind)",
+    projects: [
+      {
+        title: "SurtiBolivia E-Commerce",
+        description:
+          "Plataforma e-commerce completa con catálogo de productos, carrito de compras, pasarela de pagos Stripe, panel de administración, gestión de vendors, sistema de reviews, cupones de descuento, flash deals, sección de Moda Boliviana por departamento y búsqueda avanzada con Ctrl+K. Autenticación con NextAuth y base de datos PostgreSQL en Neon.",
+        link: "https://smb-commerce-platform.vercel.app",
+        image: "/projects/surtibolivia-ecommerce.webp",
+        tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.PRISMA, TAGS.NEON, TAGS.VERCEL],
+      },
+      {
+        title: "Inventario SurtiBolivia",
+        description:
+          "Sistema de gestión de inventario empresarial. Control de stock en tiempo real, movimientos de entrada/salida con historial, alertas de stock bajo, gestión de usuarios por roles (admin, gestor, empleado), subida de imágenes, búsqueda y filtros avanzados. Comparte base de datos con el e-commerce para sincronización automática.",
+        link: "https://retail-inventory-platform-gamma.vercel.app",
+        image: "/projects/inventario-surtibolivia.webp",
+        tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.PRISMA, TAGS.NEON, TAGS.VERCEL],
+      },
+      {
+        title: "NovaTech RRHH — Recursos Humanos",
+        description:
+          "Sistema completo de gestión de recursos humanos. Administración de empleados, departamentos, cálculo de nóminas, control de asistencias, reportes analíticos y dashboard interactivo. Autenticación segura y gestión de roles.",
+        link: "https://novatech-rrhh.vercel.app",
+        image: "/projects/novatech-rrhh.webp",
+        tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.PRISMA, TAGS.NEON, TAGS.VERCEL],
+      },
+      {
+        title: "Dashboard Analítica en Tiempo Real",
+        description:
+          "Panel de visualización en tiempo real con WebSockets y Pusher. Gráficas interactivas con Chart.js, filtros dinámicos, exportación CSV/PDF. Arquitectura orientada a eventos con actualizaciones push instantáneas.",
+        link: "https://realtime-ops-dashboard.vercel.app",
+        image: "/projects/realtime-dashboard.webp",
+        tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.MONGODB, TAGS.VERCEL],
+      },
+      {
+        title: "Collaborative Workboard",
+        description:
+          "Tablero Kanban colaborativo en tiempo real con drag & drop, asignación de tareas, WebSockets con Pusher para sincronización entre usuarios, notificaciones en vivo y filtros por estado y prioridad.",
+        link: "https://collaborative-workboard.vercel.app",
+        image: "/projects/collaborative-workboard.webp",
+        tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.MONGODB, TAGS.VERCEL],
+      },
+    ],
+  },
+  {
+    name: "Nuxt Full-Stack (Nuxt 4 + Vue 3 + Prisma + PostgreSQL)",
+    projects: [
+      {
+        title: "NovaTech Contabilidad",
+        description:
+          "Sistema de contabilidad empresarial con plan de cuentas, libro diario, libro mayor, balance general y estado de resultados. Dashboard con gráficas Chart.js, autenticación JWT y gestión de períodos contables.",
+        link: "https://novatech-contabilidad.vercel.app",
+        image: "/projects/novatech-contabilidad.webp",
+        tags: [TAGS.NUXT, TAGS.TAILWIND, TAGS.PRISMA, TAGS.POSTGRESQL, TAGS.VERCEL],
+      },
+    ],
+  },
+  {
+    name: "MEAN Stack (MongoDB + Express + Angular + Node.js)",
+    projects: [
+      {
+        title: "QA Test Suite",
+        description:
+          "Suite profesional de testing y QA para todo el ecosistema SurtiBolivia. 10 suites con +90 tests reales contra APIs de producción. Dashboard con métricas en tiempo real, historial de ejecuciones, modo oscuro, sistema de notificaciones, configuración avanzada, atajos de teclado y exportación CSV.",
+        link: "https://web-quality-test-suite.vercel.app",
+        image: "/projects/qa-test-suite.webp",
+        tags: [TAGS.ANGULAR, TAGS.NODE, TAGS.VERCEL],
+      },
+    ],
+  },
+  {
+    name: "Testing & Automatización",
+    projects: [
+      {
+        title: "E2E Testing con Puppeteer",
+        description:
+          "Suite de 50+ tests E2E automatizados con Puppeteer que validan flujos críticos de las aplicaciones SurtiBolivia: login, CRUD de productos, navegación, compartición de base de datos entre apps y UI responsivo. Ejecución headless en CI/CD.",
+        github: "https://github.com/Rybak1234",
+        image: "/projects/qa-test-suite.webp",
+        tags: [TAGS.PUPPETEER, TAGS.NODE],
+      },
+    ],
+  },
 ]
 ---
 
 <div class="flex flex-col gap-y-16">
   {
-    PROJECTS.map(({ image, title, description, tags, link, github }) => (
-    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-  <div class="w-full md:w-1/2">
-    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-      <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
-    </div>
-  </div>
+    STACKS.map((stack, si) => (
+      <div>
+        <h3
+          data-anim="anim-fade-right"
+          class={`text-lg font-semibold text-purple-600 dark:text-purple-400 mb-8 delay-${si + 1}`}
+        >
+          {stack.name}
+        </h3>
+        <div class="flex flex-col gap-y-16">
+          {stack.projects.map((project, i) => (
+            <article data-anim="anim-fade-up" class={`flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0 delay-${i + 1}`}>
+              <div class="w-full md:w-1/2">
+                <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+                  <img alt={project.title} class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="eager" src={project.image} />
+                </div>
+              </div>
 
-  <div class="w-full md:w-1/2 md:max-w-lg">
-    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
-      {title}
-    </h3>
-    <div class="flex flex-wrap mt-2">
-      <ul class="flex flex-row mb-2 gap-x-2">
-          {tags.map((tag) => (
-            <li>
-              <span
-                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
-              >
-                <tag.icon class="size-4" />
-                {tag.name}
-              </span>
-            </li>
+              <div class="w-full md:w-1/2 md:max-w-lg">
+                <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+                  {project.title}
+                </h3>
+                <div class="flex flex-wrap mt-2">
+                  <ul class="flex flex-row flex-wrap mb-2 gap-2">
+                    {project.tags.map((tag) => (
+                      <li>
+                        <span
+                          class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                        >
+                          <tag.icon class="size-4" />
+                          {tag.name}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div class="mt-2 text-gray-700 dark:text-gray-400">{project.description}</div>
+                  <footer class="flex items-end justify-start mt-4 gap-x-4">
+                    {"github" in project && (
+                      <LinkButton href={project.github}>
+                        <GitHub class="size-6" />
+                        Code
+                      </LinkButton>
+                    )}
+                    {"link" in project && (
+                      <LinkButton href={project.link}>
+                        <Link class="size-4" />
+                        Preview
+                      </LinkButton>
+                    )}
+                  </footer>
+                </div>
+              </div>
+            </article>
           ))}
-        </ul>
-
-      <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
-      <footer class="flex items-end justify-start mt-4 gap-x-4">
-          {github && (
-            <LinkButton href={github}>
-              <GitHub class="size-6" />
-              Code
-              
-            </LinkButton>
-          )}
-          {link && (
-            <LinkButton href={link}>
-              <Link class="size-4" />
-              Preview
-            </LinkButton>
-          )}
-        </footer>
-    </div>
-  </div>
-</article>
+        </div>
+      </div>
     ))
   }
 </div>
-
-
-

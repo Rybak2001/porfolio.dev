@@ -12,19 +12,18 @@ import Hero from "@/components/Hero.astro"
 ---
 
 <Layout
-  title="Porfolio de midudev - Desarrollador y Programador Web con 15 años de experiencia"
-  description="Contrata a midudev para crear tu aplicación web o móvil. Desarrollador Web y Creador de Contenido. Especializado en crear aplicaciones únicas."
+  title="Pedro Chacolla - Desarrollador Full Stack | La Paz, Bolivia"
+  description="Portfolio de Pedro Abad Chacolla Espinoza. Desarrollador Full Stack con +3 anos de experiencia. Especializado en Next.js, Angular, Kotlin, Prisma y despliegues en Vercel."
 >
   <main class="px-4">
     <SectionContainer class="py-16 md:py-36">
-      <Hero>
-      </slot>
-    </Hero>
+      <Hero />
     </SectionContainer>
     <div class="space-y-24">
     <SectionContainer id="experiencia">
       <h2
         class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+        data-anim="anim-fade-right"
       >
         <Briefcase class="size-8" />
         Experiencia laboral
@@ -35,6 +34,7 @@ import Hero from "@/components/Hero.astro"
     <SectionContainer id="proyectos">
       <h2
         class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+        data-anim="anim-fade-right"
       >
         <CodeIcon class="size-7" />
         Proyectos
@@ -45,6 +45,7 @@ import Hero from "@/components/Hero.astro"
     <SectionContainer id="sobre-mi">
       <h2
         class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
+        data-anim="anim-fade-right"
       >
         <ProfileCheck class="size-8" />
         Sobre mí

@@ -1,0 +1,711 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedro Chacolla â€“ Desarrollador de Software</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1e293b;
+            background: #94a3b8;
+            font-size: 9.5pt;
+            line-height: 1.45;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 16px auto;
+            background: #fff;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* â•â•â•â•â•â•â•â•â•â•â• HEADER â•â•â•â•â•â•â•â•â•â•â• */
+        .header {
+            background: linear-gradient(135deg, #0f766e 0%, #1e40af 100%);
+            color: #fff;
+            padding: 22px 28px;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .hd-photo {
+            width: 110px; height: 110px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.4);
+            background: rgba(255,255,255,0.15);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .hd-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .hd-photo .placeholder { font-size: 8pt; color: rgba(255,255,255,0.5); text-align: center; line-height: 1.3; }
+
+        .hd-info { flex: 1; }
+
+        .hd-name {
+            font-size: 20pt;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 2px;
+        }
+
+        .hd-title {
+            font-size: 9.5pt;
+            font-weight: 400;
+            color: rgba(255,255,255,0.75);
+            text-transform: none;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .hd-contacts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 16px;
+        }
+
+        .hd-c {
+            font-size: 8pt;
+            color: rgba(255,255,255,0.85);
+        }
+        .hd-c a { color: #a5f3fc; }
+        .hd-c .lbl {
+            font-size: 6.5pt;
+            color: rgba(255,255,255,0.5);
+            text-transform: none;
+            letter-spacing: 0.8px;
+            display: block;
+        }
+
+        /* â•â•â•â•â•â•â•â•â•â•â• BODY â•â•â•â•â•â•â•â•â•â•â• */
+        .body {
+            display: grid;
+            grid-template-columns: 1fr 64mm;
+            flex: 1;
+        }
+
+        /* â”€â”€ MAIN COLUMN (LEFT) â”€â”€ */
+        .main {
+            padding: 18px 20px 16px;
+        }
+
+        .sec { margin-bottom: 10px; }
+
+        .sec-t {
+            font-size: 9pt;
+            font-weight: 700;
+            text-transform: none;
+            letter-spacing: 1.8px;
+            color: #0f766e;
+            padding-bottom: 3px;
+            border-bottom: 2px solid #14b8a6;
+            margin-bottom: 7px;
+        }
+
+        .profile {
+            font-size: 9pt;
+            color: #475569;
+            line-height: 1.55;
+        }
+
+        /* â”€â”€ ENTRIES â”€â”€ */
+        .entry { margin-bottom: 7px; position: relative; padding-left: 12px; }
+        .entry::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 6px;
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: #14b8a6;
+        }
+        .entry-r1 { display: flex; justify-content: space-between; align-items: baseline; }
+        .entry-org { font-weight: 700; font-size: 9.5pt; color: #1e293b; }
+        .entry-date { font-size: 7.5pt; color: #94a3b8; font-weight: 500; }
+        .entry-role { font-size: 8.5pt; color: #64748b; font-style: italic; }
+        .entry ul { padding-left: 14px; margin-top: 2px; }
+        .entry li { font-size: 8.5pt; color: #475569; margin-bottom: 1px; line-height: 1.4; }
+
+        /* â”€â”€ PROJECTS â”€â”€ */
+        .proj {
+            margin-bottom: 5px;
+            padding: 4px 10px;
+            background: #f0fdfa;
+            border-left: 3px solid #14b8a6;
+            border-radius: 0 4px 4px 0;
+        }
+        .proj-name { font-weight: 700; font-size: 8.5pt; color: #1e293b; }
+        .proj-tech { font-size: 7pt; color: #6366f1; margin-top: 1px; }
+        .proj-links { font-size: 7pt; color: #0f766e; margin-top: 1px; }
+        .proj-links a { color: #0f766e; text-decoration: underline; }
+        .proj-desc { font-size: 7.5pt; color: #475569; margin-top: 1px; line-height: 1.35; }
+        .proj-desc p { margin: 2px 0; }
+        .proj-cat {
+            font-size: 7.2pt;
+            font-weight: 700;
+            text-transform: none;
+            letter-spacing: 1px;
+            color: #0f766e;
+            margin: 6px 0 4px;
+        }
+
+        /* â”€â”€ EDUCATION â”€â”€ */
+        .edu { margin-bottom: 5px; padding-left: 12px; position: relative; }
+        .edu::before {
+            content: '';
+            position: absolute; left: 0; top: 5px;
+            width: 6px; height: 6px; border-radius: 50%;
+            background: #14b8a6;
+        }
+        .edu-name { font-weight: 700; font-size: 9pt; color: #1e293b; }
+        .edu-deg { font-size: 8.5pt; color: #475569; }
+        .edu-date { font-size: 7.5pt; color: #94a3b8; }
+
+        /* â”€â”€ SIDEBAR (RIGHT) â”€â”€ */
+        .sidebar {
+            background: #f0fdfa;
+            padding: 18px 14px 16px;
+            border-left: 1px solid #ccfbf1;
+        }
+
+        .sb-section { margin-bottom: 11px; }
+
+        .sb-sec-t {
+            font-size: 7.5pt;
+            font-weight: 700;
+            text-transform: none;
+            letter-spacing: 2px;
+            color: #0f766e;
+            margin-bottom: 6px;
+            padding-bottom: 3px;
+            border-bottom: 1px solid #99f6e4;
+        }
+
+        /* â”€â”€ SKILL CATEGORY â”€â”€ */
+        .sk-cat {
+            font-size: 6.5pt;
+            color: #64748b;
+            text-transform: none;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            margin-bottom: 2px;
+            font-weight: 600;
+        }
+        .sk-cat:first-child { margin-top: 0; }
+
+        /* â”€â”€ SKILL BARS â”€â”€ */
+        .skill-bar { margin-bottom: 4px; }
+        .skill-bar .sk-name {
+            font-size: 8pt;
+            color: #1e293b;
+            margin-bottom: 2px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .skill-bar .sk-name .sk-lvl { color: #94a3b8; font-size: 7pt; }
+        .sk-track {
+            height: 5px;
+            background: #ccfbf1;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .sk-fill {
+            height: 100%;
+            border-radius: 3px;
+            background: linear-gradient(90deg, #14b8a6, #6366f1);
+        }
+
+        /* â”€â”€ TAGS â”€â”€ */
+        .sb-tags { display: flex; flex-wrap: wrap; gap: 3px; }
+        .sb-tag {
+            font-size: 6.5pt;
+            padding: 2px 6px;
+            background: #fff;
+            color: #0f766e;
+            border-radius: 3px;
+            border: 1px solid #99f6e4;
+        }
+
+        /* â”€â”€ LANGUAGE â”€â”€ */
+        .lang-item { margin-bottom: 4px; }
+        .lang-name { font-size: 8.5pt; color: #1e293b; }
+        .lang-level { font-size: 7.5pt; color: #64748b; }
+        .lang-dots { display: flex; gap: 3px; margin-top: 2px; }
+        .lang-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: #ccfbf1;
+        }
+        .lang-dot.active { background: #14b8a6; }
+
+        /* â”€â”€ CERT â”€â”€ */
+        .sb-cert { font-size: 8pt; color: #334155; margin-bottom: 4px; line-height: 1.35; }
+        .sb-cert .cert-date { color: #94a3b8; font-size: 7pt; display: block; }
+
+        /* â”€â”€ COMMUNITY â”€â”€ */
+        .ws-item { font-size: 8pt; color: #334155; margin-bottom: 4px; line-height: 1.35; }
+        .ws-item .ws-name { color: #1e293b; font-weight: 600; }
+        .ws-item .ws-date { color: #94a3b8; font-size: 7pt; display: block; }
+
+        @media print {
+            body { background: #fff; }
+            .page { margin: 0; box-shadow: none; }
+            .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .sidebar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .proj { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .sk-track, .sk-fill, .lang-dot, .entry::before, .edu::before, .hd-photo {
+                -webkit-print-color-adjust: exact; print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• HEADER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <header class="header">
+        <div class="hd-photo">
+            <img src="../../assets/profile-photo.jpg" alt="Foto de perfil de Pedro Chacolla">
+        </div>
+        <div class="hd-info">
+            <div class="hd-name">Pedro Abad Chacolla E.</div>
+            <div class="hd-title">Desarrollador de software Â· Web & mobile</div>
+            <div class="hd-contacts">
+                <div class="hd-c"><span class="lbl">Email</span><a href="mailto:chacolla43@gmail.com">chacolla43@gmail.com</a></div>
+                <div class="hd-c"><span class="lbl">TelÃ©fono</span>+591 76591390</div>
+                <div class="hd-c"><span class="lbl">UbicaciÃ³n</span>La Paz, Bolivia</div>
+                <div class="hd-c"><span class="lbl">GitHub</span><a href="https://github.com/Rybak2001">github.com/Rybak2001</a></div>
+                <div class="hd-c"><span class="lbl">LinkedIn</span><a href="https://www.linkedin.com/in/pedro-chacolla-b18918359/">linkedin.com/in/pedro-chacolla</a></div>
+                <div class="hd-c"><span class="lbl">Portafolio</span><a href="https://porfolio-dev-amber.vercel.app/">porfolio-dev-amber.vercel.app</a></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• BODY â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <div class="body">
+
+        <!-- â”€â”€â”€ MAIN COLUMN â”€â”€â”€ -->
+        <div class="main">
+
+            <!-- PERFIL -->
+            <section class="sec">
+                <h2 class="sec-t">Perfil</h2>
+                <p class="profile">
+                    Egresado de IngenierÃ­a de Sistemas con experiencia en desarrollo web (Angular, .NET Core, MEAN), apps mÃ³viles (Kotlin/Android) y despliegue en AWS/VPS. Aplico Clean Architecture, CQRS y microservicios para construir soluciones escalables de negocio. Proyecto de grado de realidad mixta desarrollado bajo lineamientos de confidencialidad institucional (repositorio privado). CCNA certificado, inglÃ©s C1, usuario diario de Linux. Disponibilidad inmediata.
+                </p>
+            </section>
+
+            <!-- EXPERIENCIA -->
+            <section class="sec">
+                <h2 class="sec-t">Experiencia</h2>
+
+                <div class="entry">
+                    <div class="entry-r1">
+                        <span class="entry-org">Mi TelefÃ©rico â€“ Parque de las Culturas</span>
+                        <span class="entry-date">Ago 2024 â€“ Ago 2025</span>
+                    </div>
+                    <div class="entry-role">Tesista â€“ Sistema de Realidad Mixta</div>
+                    <ul>
+                        <li>Sistema web full stack (MEAN) con WebSockets + app Android nativa (Kotlin).</li>
+                        <li>Arquitectura MVC, API REST documentada con Swagger, deploy en VPS con Nginx.</li>
+                    </ul>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-r1">
+                        <span class="entry-org">Mi TelefÃ©rico â€“ Parque de las Culturas</span>
+                        <span class="entry-date">Ene 2025 â€“ Ago 2025</span>
+                    </div>
+                    <div class="entry-role">Practicante â€“ Soporte y Servidores</div>
+                    <ul>
+                        <li>Mantenimiento de servidores Linux, monitoreo con Grafana y servicios de red.</li>
+                    </ul>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-r1">
+                        <span class="entry-org">Astrogeomatica</span>
+                        <span class="entry-date">Jun 2024 â€“ Dic 2024</span>
+                    </div>
+                    <div class="entry-role">Desarrollador Web â€“ Freelance</div>
+                    <ul>
+                        <li>Despliegue de <a href="https://astrogeomatics.com" style="color:#14b8a6">astrogeomatics.com</a> (WordPress + CloudFlare + Nginx) y plataforma Moodle.</li>
+                    </ul>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-r1">
+                        <span class="entry-org">Centro Boliviano Americano</span>
+                        <span class="entry-date">Feb 2024 â€“ May 2024</span>
+                    </div>
+                    <div class="entry-role">Desarrollador Web â€“ Freelance</div>
+                    <ul>
+                        <li>Plataforma de control de acceso con Angular + .NET Core (Entity Framework, JWT, roles).</li>
+                    </ul>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-r1">
+                        <span class="entry-org">Univalle â€“ La Paz</span>
+                        <span class="entry-date">2022 â€“ 2024</span>
+                    </div>
+                    <div class="entry-role">Auxiliar de Docencia â€“ LÃ³gica y ProgramaciÃ³n</div>
+                    <ul>
+                        <li>Clases prÃ¡cticas, evaluaciones y tutorÃ­a individual a estudiantes de primer aÃ±o.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- PROYECTOS -->
+            <section class="sec">
+                <h2 class="sec-t">Proyectos</h2>
+
+                <div class="proj-cat">Sistemas de negocio y productividad</div>
+
+                <div class="proj">
+                    <div class="proj-name">Tienda online para pequeÃ±os negocios</div>
+                    <div class="proj-tech">.NET Core Â· Angular Â· PostgreSQL Â· Entity Framework Â· Docker Â· Stripe</div>
+                    <div class="proj-links"><a href="https://github.com/Rybak2001/smb-commerce-platform">Repositorio</a> Â· Dominio: __________________</div>
+                    <div class="proj-desc">
+                        <p>Plataforma para gestionar catÃ¡logo, pedidos y cobros en lÃ­nea desde un panel Ãºnico, enfocada en digitalizar ventas y reducir tiempos operativos.</p>
+                        <p>Backoffice en Angular y API en .NET Core con Clean Architecture, JWT por roles, PostgreSQL con Entity Framework, pagos Stripe y despliegue con Docker.</p>
+                    </div>
+                </div>
+
+                <div class="proj">
+                    <div class="proj-name">Control de inventario para tienda y almacÃ©n</div>
+                    <div class="proj-tech">Angular Â· .NET Core Â· PostgreSQL Â· TypeORM Â· Docker</div>
+                    <div class="proj-links"><a href="https://github.com/Rybak2001/retail-inventory-platform">Repositorio</a> Â· Dominio: __________________</div>
+                    <div class="proj-desc">
+                        <p>Sistema para registrar entradas, salidas y reposiciÃ³n de productos, orientado a reducir quiebres de stock y mejorar compras.</p>
+                        <p>Implementado con Angular, .NET Core y PostgreSQL. Incluye alertas por stock mÃ­nimo, bitÃ¡cora de movimientos, reportes por categorÃ­a y despliegue con Docker.</p>
+                    </div>
+                </div>
+
+                <div class="proj">
+                    <div class="proj-name">Portal de publicaciones para equipos de marketing</div>
+                    <div class="proj-tech">Angular Â· Node.js Â· Express Â· MongoDB Â· Prisma Â· Cloudinary</div>
+                    <div class="proj-links"><a href="https://github.com/Rybak2001/marketing-content-platform">Repositorio</a> Â· Dominio: __________________</div>
+                    <div class="proj-desc">
+                        <p>Portal para crear y programar contenido digital sin depender del equipo de desarrollo, acelerando publicaciÃ³n y consistencia editorial.</p>
+                        <p>Desarrollado con Angular y Node.js/Express, editor WYSIWYG, gestiÃ³n de assets en Cloudinary, MongoDB para contenido y versionado con publicaciÃ³n programada.</p>
+                    </div>
+                </div>
+
+                <div class="proj">
+                    <div class="proj-name">Tablero de trabajo para equipos colaborativos</div>
+                    <div class="proj-tech">Angular Â· Node.js Â· Socket.IO Â· MongoDB Â· Mongoose Â· Redis</div>
+                    <div class="proj-links"><a href="https://github.com/Rybak2001/collaborative-workboard">Repositorio</a> Â· Dominio: __________________</div>
+                    <div class="proj-desc">
+                        <p>Herramienta para planificar tareas y monitorear avance en equipos distribuidos, mejorando visibilidad y cumplimiento de entregas.</p>
+                        <p>Construido con Angular y Node.js, sincronizaciÃ³n en tiempo real con Socket.IO, Redis para cache/eventos y MongoDB para persistencia. Incluye drag and drop y notificaciones.</p>
+                    </div>
+                </div>
+
+                <div class="proj">
+                    <div class="proj-name">Sistema de turnos para agencia financiera</div>
+                    <div class="proj-tech">Node.js Â· Express Â· Redis Â· RabbitMQ Â· Docker Â· Nginx</div>
+                    <div class="proj-links"><a href="https://github.com/Rybak2001/banking-queue-system">Repositorio</a> Â· Dominio: __________________</div>
+                    <div class="proj-desc">
+                        <p>SoluciÃ³n para gestionar filas y atenciÃ³n por ventanilla en una agencia financiera, reduciendo tiempos de espera y ordenando la operaciÃ³n.</p>
+                        <p>DiseÃ±ado con microservicios y API Gateway en Node.js/Express para enrutamiento, autenticaciÃ³n y rate limiting. Usa RabbitMQ para procesos asÃ­ncronos, Redis para cache/sesiones y Nginx en Docker.</p>
+                    </div>
+                </div>
+
+                <div class="proj-cat">Arquitectura, seguridad y tiempo real</div>
+
+                <div class="proj">
+                    <div class="proj-name">Plataforma interactiva para aprendizaje guiado (proyecto de grado)</div>
+                    <div class="proj-tech">Angular Â· Node.js Â· Express Â· MongoDB Â· Kotlin Â· WebSockets</div>
+                    <div class="proj-links">Repositorio: privado Â· Dominio: __________________</div>
+                    <div class="proj-desc">
+                        <p>SoluciÃ³n acadÃ©mica para aprendizaje interactivo con acompaÃ±amiento en tiempo real, enfocada en mejorar participaciÃ³n y retenciÃ³n en actividades educativas.</p>
+                        <p>Implementado con Angular, Node.js/Express, Kotlin, WebSockets y MongoDB (Mongoose) bajo arquitectura MVC y API REST en Swagger. Repositorio privado por lineamientos institucionales.</p>
+                    </div>
+                </div>
+
+                <div class="proj">
+                    <div class="proj-name">MÃ³dulo de identidad y acceso para plataforma SaaS</div>
+                    <div class="proj-tech">.NET Core Â· PostgreSQL Â· JWT Â· Redis Â· Docker Â· Swagger</div>
+                    <div class="proj-links"><a href="https://github.com/Rybak2001/saas-auth-service">Repositorio</a> Â· Dominio: __________________</div>
+                    <div class="proj-desc">
+                        <p>Componente transversal dentro de un sistema SaaS multiempresa para centralizar inicio de sesiÃ³n, permisos y control de acceso en todos los mÃ³dulos del producto.</p>
+                        <p>Desarrollado en .NET Core con esquema multi-tenant, JWT y refresh tokens en Redis. Incluye rate limiting, autorizaciÃ³n RBAC, auditorÃ­a de sesiones y contratos OpenAPI con Swagger.</p>
+                    </div>
+                </div>
+
+                <div class="proj">
+                    <div class="proj-name">MÃ³dulo de monitoreo operativo en tiempo real</div>
+                    <div class="proj-tech">Angular Â· Node.js Â· Socket.IO Â· MongoDB Â· Mongoose Â· Chart.js</div>
+                    <div class="proj-links"><a href="https://github.com/Rybak2001/realtime-ops-dashboard">Repositorio</a> Â· Dominio: __________________</div>
+                    <div class="proj-desc">
+                        <p>SubmÃ³dulo analÃ­tico dentro de una plataforma de operaciones, orientado a supervisar incidencias, productividad y estado de servicio para jefaturas y soporte.</p>
+                        <p>Implementado con Angular y Node.js, eventos live con Socket.IO, persistencia en MongoDB y visualizaciÃ³n con Chart.js. Incluye filtros por rango/Ã¡rea y exportaciÃ³n CSV/PDF para reportes.</p>
+                    </div>
+                </div>
+
+                <div class="proj">
+                    <div class="proj-name">App de rutinas saludables y seguimiento diario</div>
+                    <div class="proj-tech">Kotlin Â· Android Â· Room DB Â· Material Design Â· MVVM</div>
+                    <div class="proj-links"><a href="https://github.com/Rybak2001/habit-tracker-android">Repositorio</a> Â· Dominio: __________________</div>
+                    <div class="proj-desc">
+                        <p>AplicaciÃ³n mÃ³vil para registrar hÃ¡bitos, metas y recordatorios diarios, ayudando a sostener rutinas con seguimiento simple.</p>
+                        <p>Desarrollada en Kotlin nativo con MVVM, persistencia local en Room DB y UI en Material Design. Incluye notificaciones, mÃ©tricas semanales y enfoque offline-first.</p>
+                    </div>
+                </div>
+
+                <div class="proj-cat">Calidad, datos y entrega continua</div>
+
+                <div class="proj">
+                    <div class="proj-name">Starter kit de microservicios para equipos</div>
+                    <div class="proj-tech">.NET Core Â· Node.js Â· Docker Â· Redis Â· RabbitMQ Â· GitHub Actions</div>
+                    <div class="proj-links"><a href="https://github.com/Rybak2001/microservices-starter-kit">Repositorio</a> Â· Dominio: __________________</div>
+                    <div class="proj-desc">
+                        <p>Base reutilizable para iniciar sistemas distribuidos con buenas prÃ¡cticas de arquitectura, pensada para acelerar onboarding de nuevos desarrolladores.</p>
+                        <p>Incluye estructura por capas, configuraciÃ³n de mensajerÃ­a con RabbitMQ, cache con Redis, health checks, logging centralizado y pipeline CI en GitHub Actions.</p>
+                    </div>
+                </div>
+
+                <div class="proj">
+                    <div class="proj-name">CLI para estandarizar APIs REST en equipos</div>
+                    <div class="proj-tech">Node.js Â· TypeScript Â· OpenAPI Â· Spectral Â· ESLint Â· Husky</div>
+                    <div class="proj-links"><a href="https://github.com/Rybak2001/api-standards-cli">Repositorio</a> Â· Dominio: __________________</div>
+                    <div class="proj-desc">
+                        <p>Herramienta de lÃ­nea de comandos para validar convenciones y calidad de APIs en proyectos colaborativos, reduciendo inconsistencias entre equipos.</p>
+                        <p>Genera plantillas de endpoints, valida contratos OpenAPI con reglas personalizadas (Spectral) e integra controles de calidad en pre-commit con Husky y ESLint.</p>
+                    </div>
+                </div>
+
+                <div class="proj">
+                    <div class="proj-name">AutomatizaciÃ³n de publicaciones para software</div>
+                    <div class="proj-tech">GitHub Actions Â· Jenkins Â· Docker Â· Node.js Â· Nginx</div>
+                    <div class="proj-links"><a href="https://github.com/Rybak2001/ci-cd-release-automation">Repositorio</a> Â· Dominio: __________________</div>
+                    <div class="proj-desc">
+                        <p>Pipeline de entrega para publicar versiones con menor riesgo operativo, reduciendo errores manuales y tiempo a producciÃ³n.</p>
+                        <p>Implementado con GitHub Actions y Jenkins para lint/test/build, empaquetado Docker y despliegue a VPS con Nginx. Incluye rollback y verificaciÃ³n post-deploy.</p>
+                    </div>
+                </div>
+
+                <div class="proj">
+                    <div class="proj-name">Observatorio de datos para indicadores de gestiÃ³n</div>
+                    <div class="proj-tech">Python Â· PostgreSQL Â· Grafana Â· BeautifulSoup Â· Requests</div>
+                    <div class="proj-links"><a href="https://github.com/Rybak2001/kpi-observability-platform">Repositorio</a> Â· Dominio: __________________</div>
+                    <div class="proj-desc">
+                        <p>Plataforma para consolidar datos y visualizar indicadores clave de gestiÃ³n, apoyando decisiones con informaciÃ³n histÃ³rica confiable.</p>
+                        <p>Implementa flujo ETL ligero en Python (Requests/BeautifulSoup), carga programada en PostgreSQL y dashboards en Grafana. Incluye limpieza de datos y consultas agregadas para KPIs.</p>
+                    </div>
+                </div>
+
+                <div class="proj">
+                    <div class="proj-name">Sistema de pruebas para calidad de aplicaciones web</div>
+                    <div class="proj-tech">Angular Â· Karma Â· Jasmine Â· Selenium Â· Jest Â· .NET Core</div>
+                    <div class="proj-links"><a href="https://github.com/Rybak2001/web-quality-test-suite">Repositorio</a> Â· Dominio: __________________</div>
+                    <div class="proj-desc">
+                        <p>Conjunto de pruebas para validar funciones crÃ­ticas antes de cada release, disminuyendo defectos y mejorando estabilidad en producciÃ³n.</p>
+                        <p>Incluye pruebas unitarias (Jest, Jasmine/Karma) y E2E con Selenium sobre Angular y .NET Core. Se integra a CI como gate de calidad automatizado.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EDUCACIÃ“N -->
+            <section class="sec">
+                <h2 class="sec-t">EducaciÃ³n</h2>
+
+                <div class="edu">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline;">
+                        <span class="edu-name">Universidad Privada del Valle (Univalle)</span>
+                        <span class="edu-date">2018 â€“ 2024</span>
+                    </div>
+                    <div class="edu-deg">Egresado en IngenierÃ­a de Sistemas</div>
+                </div>
+
+                <div class="edu">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline;">
+                        <span class="edu-name">Centro Boliviano Americano (CBA)</span>
+                        <span class="edu-date">2019 â€“ 2025</span>
+                    </div>
+                    <div class="edu-deg">Certificado de Dominio del InglÃ©s â€“ C1 Avanzado</div>
+                </div>
+            </section>
+
+            <div style="font-size:7.5pt; color:#94a3b8; text-align:center; padding-top:4px; border-top:1px solid #e2e8f0;">
+                Disponibilidad inmediata Â· Remoto o presencial Â· Referencias a solicitud
+            </div>
+        </div>
+
+        <!-- â”€â”€â”€ SIDEBAR (RIGHT) â”€â”€â”€ -->
+        <aside class="sidebar">
+
+            <!-- HABILIDADES CATEGORIZADAS -->
+            <div class="sb-section">
+                <h3 class="sb-sec-t">Habilidades</h3>
+
+                <div class="sk-cat">Frontend</div>
+                <div class="skill-bar">
+                    <div class="sk-name">TypeScript / JS <span class="sk-lvl">8/10</span></div>
+                    <div class="sk-track"><div class="sk-fill" style="width:80%"></div></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="sk-name">Angular <span class="sk-lvl">6/10</span></div>
+                    <div class="sk-track"><div class="sk-fill" style="width:60%"></div></div>
+                </div>
+
+                <div class="sk-cat">Backend</div>
+                <div class="skill-bar">
+                    <div class="sk-name">.NET Core / C# <span class="sk-lvl">7/10</span></div>
+                    <div class="sk-track"><div class="sk-fill" style="width:70%"></div></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="sk-name">Node.js / Express <span class="sk-lvl">7/10</span></div>
+                    <div class="sk-track"><div class="sk-fill" style="width:70%"></div></div>
+                </div>
+
+                <div class="sk-cat">Bases de datos</div>
+                <div class="skill-bar">
+                    <div class="sk-name">MongoDB <span class="sk-lvl">7/10</span></div>
+                    <div class="sk-track"><div class="sk-fill" style="width:70%"></div></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="sk-name">PostgreSQL <span class="sk-lvl">6/10</span></div>
+                    <div class="sk-track"><div class="sk-fill" style="width:60%"></div></div>
+                </div>
+
+                <div class="sk-cat">Mobile</div>
+                <div class="skill-bar">
+                    <div class="sk-name">Kotlin / Android <span class="sk-lvl">6/10</span></div>
+                    <div class="sk-track"><div class="sk-fill" style="width:60%"></div></div>
+                </div>
+
+                <div class="sk-cat">DevOps</div>
+                <div class="skill-bar">
+                    <div class="sk-name">Docker <span class="sk-lvl">5/10</span></div>
+                    <div class="sk-track"><div class="sk-fill" style="width:50%"></div></div>
+                </div>
+            </div>
+
+            <!-- ORMs -->
+            <div class="sb-section">
+                <h3 class="sb-sec-t">ORM / Data Access</h3>
+                <div class="sb-tags">
+                    <span class="sb-tag">Entity Framework</span>
+                    <span class="sb-tag">Mongoose</span>
+                    <span class="sb-tag">Prisma</span>
+                    <span class="sb-tag">TypeORM</span>
+                </div>
+            </div>
+
+            <!-- ARQUITECTURA -->
+            <div class="sb-section">
+                <h3 class="sb-sec-t">Arquitectura</h3>
+                <div class="sb-tags">
+                    <span class="sb-tag">MVC</span>
+                    <span class="sb-tag">Clean Architecture</span>
+                    <span class="sb-tag">CQRS</span>
+                    <span class="sb-tag">Microservicios</span>
+                    <span class="sb-tag">API REST</span>
+                    <span class="sb-tag">WebSockets</span>
+                </div>
+            </div>
+
+            <!-- INFRA & TESTING -->
+            <div class="sb-section">
+                <h3 class="sb-sec-t">Infra & Testing</h3>
+                <div class="sb-tags">
+                    <span class="sb-tag">Git</span>
+                    <span class="sb-tag">Linux</span>
+                    <span class="sb-tag">AWS</span>
+                    <span class="sb-tag">Nginx</span>
+                    <span class="sb-tag">Apache</span>
+                    <span class="sb-tag">GitHub Actions</span>
+                    <span class="sb-tag">Jenkins</span>
+                    <span class="sb-tag">Grafana</span>
+                    <span class="sb-tag">Redis</span>
+                    <span class="sb-tag">RabbitMQ</span>
+                    <span class="sb-tag">Jest</span>
+                    <span class="sb-tag">Jasmine</span>
+                    <span class="sb-tag">Karma</span>
+                    <span class="sb-tag">Selenium</span>
+                    <span class="sb-tag">Vercel</span>
+                    <span class="sb-tag">VPS</span>
+                </div>
+            </div>
+
+            <!-- HERRAMIENTAS -->
+            <div class="sb-section">
+                <h3 class="sb-sec-t">Herramientas</h3>
+                <div class="sb-tags">
+                    <span class="sb-tag">VSCode</span>
+                    <span class="sb-tag">Visual Studio</span>
+                    <span class="sb-tag">Swagger</span>
+                    <span class="sb-tag">Figma</span>
+                    <span class="sb-tag">WordPress</span>
+                    <span class="sb-tag">Moodle</span>
+                    <span class="sb-tag">CloudFlare</span>
+                    <span class="sb-tag">Astro</span>
+                    <span class="sb-tag">Tailwind</span>
+                    <span class="sb-tag">Python</span>
+                    <span class="sb-tag">Scrum</span>
+                </div>
+            </div>
+
+            <!-- IDIOMAS -->
+            <div class="sb-section">
+                <h3 class="sb-sec-t">Idiomas</h3>
+                <div class="lang-item">
+                    <div class="lang-name">EspaÃ±ol <span class="lang-level">â€“ Nativo</span></div>
+                    <div class="lang-dots">
+                        <span class="lang-dot active"></span><span class="lang-dot active"></span><span class="lang-dot active"></span><span class="lang-dot active"></span><span class="lang-dot active"></span>
+                    </div>
+                </div>
+                <div class="lang-item">
+                    <div class="lang-name">InglÃ©s <span class="lang-level">â€“ C1</span></div>
+                    <div class="lang-dots">
+                        <span class="lang-dot active"></span><span class="lang-dot active"></span><span class="lang-dot active"></span><span class="lang-dot active"></span><span class="lang-dot"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CERTIFICACIONES -->
+            <div class="sb-section">
+                <h3 class="sb-sec-t">Certificaciones</h3>
+                <div class="sb-cert">
+                    CCNA 1 & 2 â€“ Cisco
+                    <span class="cert-date">Nov 2023</span>
+                </div>
+                <div class="sb-cert">
+                    InglÃ©s C1 â€“ CBA
+                    <span class="cert-date">2019 â€“ 2025</span>
+                </div>
+                <div class="sb-cert">
+                    Scrum & MetodologÃ­as Ãgiles
+                    <span class="cert-date">2023</span>
+                </div>
+            </div>
+
+            <!-- COMUNIDAD -->
+            <div class="sb-section">
+                <h3 class="sb-sec-t">Comunidad</h3>
+                <div class="ws-item">
+                    <span class="ws-name">Ubuntu Linux â€“ La Paz</span>
+                    <span class="ws-date">InstalaciÃ³n y soporte Â· 2023 â€“ Presente</span>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+</div>
+</body>
+</html>
+
