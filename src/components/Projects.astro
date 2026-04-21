@@ -14,6 +14,9 @@ import DotNet from "./icons/DotNet.astro"
 import Puppeteer from "./icons/Puppeteer.astro"
 import Nuxt from "./icons/Nuxt.astro"
 import PostgreSQL from "./icons/PostgreSQL.astro"
+import Flutter from "./icons/Flutter.astro"
+import PHP from "./icons/PHP.astro"
+import MySQL from "./icons/MySQL.astro"
 
 const TAGS = {
   NEXT: {
@@ -80,6 +83,21 @@ const TAGS = {
     name: "PostgreSQL",
     class: "bg-[#336791] text-white",
     icon: PostgreSQL,
+  },
+  FLUTTER: {
+    name: "Flutter",
+    class: "bg-[#027DFD] text-white",
+    icon: Flutter,
+  },
+  PHP: {
+    name: "PHP 8",
+    class: "bg-[#777BB4] text-white",
+    icon: PHP,
+  },
+  MYSQL: {
+    name: "MySQL",
+    class: "bg-[#4479A1] text-white",
+    icon: MySQL,
   },
 }
 
@@ -156,15 +174,33 @@ const STACKS = [
     ],
   },
   {
-    name: "Testing & Automatización",
+    name: "Móvil & Backend Web (Flutter · Kotlin · PHP + MySQL)",
     projects: [
       {
-        title: "E2E Testing con Puppeteer",
+        title: "Habit Tracker Flutter",
         description:
-          "Suite de 50+ tests E2E automatizados con Puppeteer que validan flujos críticos de las aplicaciones SurtiBolivia: login, CRUD de productos, navegación, compartición de base de datos entre apps y UI responsivo. Ejecución headless en CI/CD.",
-        github: "https://github.com/Rybak1234",
-        image: "/projects/qa-test-suite.webp",
-        tags: [TAGS.PUPPETEER, TAGS.NODE],
+          "App de seguimiento de hábitos cross-platform desarrollada con Flutter y Dart. Streaks automáticos, estadísticas de progreso, notificaciones y Material You. Arquitectura con Provider pattern y shared_preferences.",
+        link: "https://habit-tracker-flutter-rho.vercel.app",
+        github: "https://github.com/Rybak2001/habit-tracker-flutter",
+        image: "/projects/habit-tracker-flutter.webp",
+        tags: [TAGS.FLUTTER, TAGS.VERCEL],
+      },
+      {
+        title: "Habit Tracker Android",
+        description:
+          "App Android nativa con Kotlin, arquitectura MVVM, Room DB para persistencia local, LiveData para reactividad y Material You. Gestión completa de hábitos con histórico de completados y estadísticas.",
+        github: "https://github.com/Rybak2001/habit-tracker-android",
+        image: "/projects/habit-tracker-android.webp",
+        tags: [TAGS.KOTLIN],
+      },
+      {
+        title: "PHP MySQL Panel",
+        description:
+          "Panel de gestión de productos con CRUD completo en PHP nativo, PDO MySQL, autenticación por sesión y API REST serverless. Interfaz dark-mode responsiva. Desplegado en Vercel con runtime vercel-php.",
+        link: "https://php-mysql-panel.vercel.app",
+        github: "https://github.com/Rybak2001/php-mysql-panel",
+        image: "/projects/php-mysql-panel.webp",
+        tags: [TAGS.PHP, TAGS.MYSQL, TAGS.VERCEL],
       },
     ],
   },
